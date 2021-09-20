@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "02cda553-c9ff-4521-833d-9a0999a8afb0",
+		"name": "StudentTraining",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"nom\":\"nom\",\r\n\t\"prenom\":\"prenom\",\r\n\t\"dateNaissaince\":\"1999-07-17\",\r\n\t\"formation\":\"http://localhost:8089/etudiants/1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/etudiants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"etudiants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"nom\":\"student5\",\r\n\t\"prenom\":\"student5\",\r\n\t\"dateNaissaince\":\"1999-07-17\",\r\n\t\"formation\":\"http://localhost:8089/etudiants/1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8089/etudiants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"etudiants"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
