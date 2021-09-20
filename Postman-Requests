@@ -60,6 +60,31 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "EtudiantProjection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8089/etudiants?projection=p1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8089",
+					"path": [
+						"etudiants"
+					],
+					"query": [
+						{
+							"key": "projection",
+							"value": "p1"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
