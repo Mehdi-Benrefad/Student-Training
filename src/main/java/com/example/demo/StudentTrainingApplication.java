@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 @SpringBootApplication
 public class StudentTrainingApplication implements CommandLineRunner{
@@ -17,13 +18,17 @@ public class StudentTrainingApplication implements CommandLineRunner{
 	@Autowired
 	FormationRepository formationRepository;
 	
+	@Autowired
+	RepositoryRestConfiguration repositoryRestConfiguration;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(StudentTrainingApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+		//On fait une configuration pour permettre a l'api Spring d'afficher les identifiants des entites.
+		repositoryRestConfiguration.exposeIdsFor(Formation.class, Etudiant.class);
 		Formation f1 = formationRepository.save(new Formation(null , "Informatique" , 52 , null));
 		
 		etudiantRepository.save(new Etudiant(null ,"Mehdi", "Benrefad" , new Date() , f1));
@@ -34,7 +39,9 @@ public class StudentTrainingApplication implements CommandLineRunner{
 		
 	}
 	
-	/*Grace a l'annotation [@RepositoryRestResource]On peut beneficier directement au 
+	
+	/*Grace a l'annotation [@RepositoryRestResource]On p
+	 * eut beneficier directement au 
 	 * ressources sans creer des controlleurs
 	 * Ajouter un Etudiant: 
 	  {
