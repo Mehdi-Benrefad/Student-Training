@@ -29,6 +29,13 @@ public class StudentTrainingApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		//On fait une configuration pour permettre a l'api Spring d'afficher les identifiants des entites.
 		repositoryRestConfiguration.exposeIdsFor(Formation.class, Etudiant.class);
+		/*
+		repositoryRestConfiguration.getCorsRegistry()
+		.addMapping("/**")
+		.allowedOrigins("*")
+		.allowHeaders("*")
+		.allowedMethods("OPTIONS","HEAD","GET","PUT","PATCH","POST","DELETE");
+		*/
 		Formation f1 = formationRepository.save(new Formation(null , "Informatique" , 52 , null));
 		
 		etudiantRepository.save(new Etudiant(null ,"Mehdi", "Benrefad" , new Date() , f1));
